@@ -25,12 +25,12 @@
 		<ul>
 			<span v-for="(x, boxline) in board" class="newline">
 				<span v-for="(y, box) in board[x]" track-by="$index">
-					<box :value.sync="box" :cplayer.sync="cplayer"></box>
+					<box :value.sync="box"  @click="claim(x,y)"></box>
 				</span>
 			</span>
 		</ul>
 		<template id="box-template">
-				<li><button @click="claim"> {{ value ? value: '+' }} </button></li>
+				<li><button> {{ value ? value : '+' }} </button></li> 
 		</template>
 	</div>
 	<script type="text/javascript" src="js/vue.js"></script>
