@@ -20,18 +20,30 @@
 		display: table;
 		margin: 0 auto;
 	}
+	.player_wrapper {
+		margin: 10px auto;
+	}
+	.player_wrapper div {
+		width: 50%;
+		text-align: center;
+		display: inline-block;
+
+	}
 	</style>
 </head>
 <body>
 	<div id="app">
 		<div class="app_wrapper">
-		<pre>{{ $data | json }}</pre>
+		<!-- <pre>{{ $data | json }}</pre> -->
 			<h2>Tic Tac Toe</h2>
 			<span v-for="(x, boxline) in board" class="newline">
 				<span v-for="(y, box) in board[x]" track-by="$index">
 					<box :value="box"  @click="claim(x,y)"></box>
 				</span>
 			</span>
+			<div class="player_wrapper">
+				<div v-for="player in players">{{ player.name }} : {{ player.score }}</div>
+			</div>
 		</div>
 		<template id="box-template">
 				<button> {{ value }} </button>
