@@ -1,9 +1,6 @@
 /*global Vue*/
-Vue.component('box', {
-	template: '#box-template',
-	props: ['value']
-});
-
+/*require("!style!css!../css/styles.css");*/
+require("../css/styles.css");
 new Vue ({
 	el: '#app',
 	data: {
@@ -11,6 +8,9 @@ new Vue ({
 		cplayer: getState('cplayer').length ? getState('cplayer') : '1',
 		players: Object.keys(getState('players')).length ? getState('players') : { '1': { turn: 'X', name: 'Robin', score: 0 }, '2': {turn: 'O', name: 'Arida', score: 0} },
 		moves: getState('moves').length ? getState('moves') : 0
+	},
+	components: {
+		box: require('./box.js')
 	},
 	methods: {
 		claim: function(x, y) {
@@ -48,7 +48,6 @@ new Vue ({
 		reset: function() {
 			this.board = [['', '', ''], ['', '', ''], ['', '', '']];
 			this.moves = 0;
-			this.switchTurn();
 			this.cplayer = '1';
 		}
 	},
