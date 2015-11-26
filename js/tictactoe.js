@@ -1,6 +1,6 @@
 /*global Vue*/
-/*require("!style!css!../css/styles.css");*/
 require("../css/styles.css");
+var Vue = require('./vue.js');
 new Vue ({
 	el: '#app',
 	data: {
@@ -27,7 +27,7 @@ new Vue ({
 			this.cplayer = this.cplayer === '1' ? '2' : '1';
 		},
 		checkWinner: function() {
-			var b = this.board;
+			let b = this.board;
 			if((b[0][0] === b[0][1] && b[0][1] === b[0][2] && b[0][2] !== '') ||
 				(b[0][0] === b[1][1] && b[1][1]  === b[2][2] && b[2][2] !== '') ||
 				(b[0][0] === b[1][0] && b[1][0] === b[2][0] && b[2][0] !== '') ||
@@ -52,15 +52,9 @@ new Vue ({
 		}
 	},
 	ready: function() {
-		this.$watch('board', function(value) {
-			saveState('board', value);
-		});
-		this.$watch('cplayer', function(value) {
-			saveState('cplayer', value);
-		});
-		this.$watch('moves', function(value) {
-			saveState('moves', value);
-		});
+		this.$watch('board', (value) => saveState('board', value));
+		this.$watch('cplayer', (value) => saveState('cplayer', value));
+		this.$watch('moves', (value) => saveState('moves', value));
 	}
 });
 

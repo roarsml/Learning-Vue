@@ -1,0 +1,29 @@
+{
+  "name": "Learning-Vue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "css-loader": "^0.23.0",
+    "style-loader": "^0.13.0",
+    "vue": "^1.0.*"
+  },
+  "devDependencies": {
+    "babel-core": "^6.2.1",
+    "babel-loader": "^6.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roarsml/Learning-Vue.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roarsml/Learning-Vue/issues"
+  },
+  "homepage": "https://github.com/roarsml/Learning-Vue#readme"
+}
