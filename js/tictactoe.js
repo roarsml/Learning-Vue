@@ -1,6 +1,6 @@
 /*global Vue*/
-require("../css/styles.css");
-
+import '../css/styles.css';
+/*require("../tictactoe.jade")*/
 import Vue from 'vue';
 import {box} from './box';
 
