@@ -1,6 +1,9 @@
 /*global Vue*/
 require("../css/styles.css");
-var Vue = require('./vue.js');
+
+import Vue from 'vue';
+import {box} from './box';
+
 new Vue ({
 	el: '#app',
 	data: {
@@ -10,7 +13,7 @@ new Vue ({
 		moves: getState('moves').length ? getState('moves') : 0
 	},
 	components: {
-		box: require('./box.js')
+		box: box
 	},
 	methods: {
 		claim: function(x, y) {
@@ -37,7 +40,10 @@ new Vue ({
 				(b[2][0] === b[2][1] && b[2][1] === b[2][2] && b[2][2] !== '') ||
 				(b[2][0] === b[1][1] && b[1][1] === b[0][2] && b[0][2] !== '')) {
 				this.players[this.cplayer].score++;
-				alert(this.players[this.cplayer].name + ' has won!');
+				/* Sample template strings
+				   `${this.players[this.cplayer].name} has won!` is same as this.players[this.cplayer].name + 
+				   ' has won!' */
+				alert(`${this.players[this.cplayer].name} has won!`);
 				saveState('players', this.players);
 				this.reset();	
 			} else if(this.moves === 9) {
@@ -51,7 +57,11 @@ new Vue ({
 			this.cplayer = '1';
 		}
 	},
-	ready: function() {
+	/* Sample enhanced object literals
+		 ready: function() is same as ready() */
+	ready() {
+		/* Sample arrow function
+			 function(value) is same as (value) => */
 		this.$watch('board', (value) => saveState('board', value));
 		this.$watch('cplayer', (value) => saveState('cplayer', value));
 		this.$watch('moves', (value) => saveState('moves', value));
