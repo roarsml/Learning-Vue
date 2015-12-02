@@ -8,7 +8,7 @@ module.exports = {
         loaders: [
             { test: /\.css$/, loader: "style!css" },
             { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"},
-            { test: /\.jade$/, loader: "jade" }
+            { test: /\.jade$/, loader: "template-html-loader" }
         ]
     }
 };

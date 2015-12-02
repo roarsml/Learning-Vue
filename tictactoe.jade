@@ -1,8 +1,8 @@
-doctype html
-html
-head
-	title="Tic Tac Toe"
-body
-	#app
-		.app_wrapper
-			h2="Tic Tac Toe"
+.app_wrapper
+	h2 Tic Tac Toe
+	span.newline(v-for='(x, boxline) in board')
+		span(v-for='(y, box) in board[x]' track-by='$index')
+			box(:value='box' @click='claim(x,y)')
+	.player_wrapper
+		div(v-for='player in players')
+			{{ player.name }} : {{ player.score }}

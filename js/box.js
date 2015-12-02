@@ -1,8 +1,6 @@
-/*module.exports = {
-	template: '#box-template',
-	props: ['value']
-};*/
+import boxTemplate from '../box.jade';
+
 export let box = {
-	template: '#box-template',
-	props: ['value']
+	props: ['value'],
+	template: boxTemplate
 };

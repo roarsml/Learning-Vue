@@ -48,6 +48,10 @@
 
 	__webpack_require__(1);
 
+	var _tictactoe = __webpack_require__(9);
+
+	var _tictactoe2 = _interopRequireDefault(_tictactoe);
+
 	var _vue = __webpack_require__(5);
 
 	var _vue2 = _interopRequireDefault(_vue);
@@ -56,10 +60,11 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	/*require("../tictactoe.jade")*/
+	/*global Vue*/
 
 	new _vue2.default({
 		el: '#app',
+		template: _tictactoe2.default,
 		data: {
 			board: getState('board').length ? getState('board') : [['', '', ''], ['', '', ''], ['', '', '']],
 			cplayer: getState('cplayer').length ? getState('cplayer') : '1',
@@ -119,7 +124,7 @@
 				return saveState('moves', value);
 			});
 		}
-	}); /*global Vue*/
+	});
 
 	function getState(key) {
 		if (localStorage.getItem(key)) {
@@ -9889,21 +9894,37 @@
 
 /***/ },
 /* 7 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	/*module.exports = {
-		template: '#box-template',
-		props: ['value']
-	};*/
+	exports.box = undefined;
+
+	var _box = __webpack_require__(8);
+
+	var _box2 = _interopRequireDefault(_box);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 	var box = exports.box = {
-		template: '#box-template',
-		props: ['value']
+		props: ['value'],
+		template: _box2.default
 	};
+
+/***/ },
+/* 8 */
+/***/ function(module, exports) {
+
+	module.exports = "<button>{{ value }}</button>"
+
+/***/ },
+/* 9 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"app_wrapper\"><h2>Tic Tac Toe</h2><span v-for=\"(x, boxline) in board\" class=\"newline\"><span v-for=\"(y, box) in board[x]\" track-by=\"$index\"><box :value=\"box\" @click=\"claim(x,y)\"></box></span></span><div class=\"player_wrapper\"><div v-for=\"player in players\">{{ player.name }} : {{ player.score }}</div></div></div>"
 
 /***/ }
 /******/ ]);

@@ -5,21 +5,6 @@
 </head>
 <body>
 	<div id="app">
-		<div class="app_wrapper">
-		<!-- <pre>{{ $data | json }}</pre> -->
-			<h2>Tic Tac Toe</h2>
-			<span v-for="(x, boxline) in board" class="newline">
-				<span v-for="(y, box) in board[x]" track-by="$index">
-					<box :value="box"  @click="claim(x,y)"></box>
-				</span>
-			</span>
-			<div class="player_wrapper">
-				<div v-for="player in players">{{ player.name }} : {{ player.score }}</div>
-			</div>
-		</div>
-		<template id="box-template">
-				<button> {{ value }} </button>
-		</template>
 	</div>
 	<script type="text/javascript" src="js/bundle.js"></script>
 </body>
