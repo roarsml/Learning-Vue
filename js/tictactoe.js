@@ -1,5 +1,5 @@
 /*global Vue*/
-import '../css/styles.css';
+import style from '../tictactoe.styl';
 import appTemplate from '../tictactoe.jade';
 import Vue from 'vue';
 import {box} from './box';

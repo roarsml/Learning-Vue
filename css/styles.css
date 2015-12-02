@@ -1,26 +1,26 @@
-	.app_wrapper {
-		margin: 0 auto;
-		width: 350px;
-	}
-	.app_wrapper h2 {
-		text-align: center;
-	}
-	button {
-		height: 100px;
-		width: 100px;
-		vertical-align: middle;
-		font-size: 80px;
-	}	
-	.newline {
-		display: table;
-		margin: 0 auto;
-	}
-	.player_wrapper {
-		margin: 10px auto;
-	}
-	.player_wrapper div {
-		width: 50%;
-		text-align: center;
-		display: inline-block;
+.app_wrapper {
+	margin: 0 auto;
+	width: 350px;
+}
+.app_wrapper h2 {
+	text-align: center;
+}
+button {
+	height: 100px;
+	width: 100px;
+	vertical-align: middle;
+	font-size: 80px;
+}	
+.newline {
+	display: table;
+	margin: 0 auto;
+}
+.player_wrapper {
+	margin: 10px auto;
+}
+.player_wrapper div {
+	width: 50%;
+	text-align: center;
+	display: inline-block;
 
-	}
+}
