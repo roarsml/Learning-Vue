@@ -1,11 +1,12 @@
 /*global Vue*/
-require("../css/styles.css");
-
+import '../css/styles.css';
+import appTemplate from '../tictactoe.jade';
 import Vue from 'vue';
 import {box} from './box';
 
 new Vue ({
 	el: '#app',
+	template: appTemplate,
 	data: {
 		board: getState('board').length ? getState('board') : [['', '', ''], ['', '', ''], ['', '', '']],
 		cplayer: getState('cplayer').length ? getState('cplayer') : '1',
