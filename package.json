@@ -11,7 +11,10 @@
   "devDependencies": {
     "babel-core": "^6.2.1",
     "babel-loader": "^6.2.0",
+    "css-loader": "^0.23.0",
     "jade-loader": "^0.8.0",
+    "style-loader": "^0.13.0",
+    "stylus-loader": "^1.4.2",
     "template-html-loader": "0.0.3"
   },
   "scripts": {

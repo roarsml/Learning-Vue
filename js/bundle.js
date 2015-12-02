@@ -46,17 +46,19 @@
 
 	'use strict';
 
-	__webpack_require__(1);
-
-	var _tictactoe = __webpack_require__(9);
+	var _tictactoe = __webpack_require__(1);
 
 	var _tictactoe2 = _interopRequireDefault(_tictactoe);
 
-	var _vue = __webpack_require__(5);
+	var _tictactoe3 = __webpack_require__(5);
+
+	var _tictactoe4 = _interopRequireDefault(_tictactoe3);
+
+	var _vue = __webpack_require__(6);
 
 	var _vue2 = _interopRequireDefault(_vue);
 
-	var _box = __webpack_require__(7);
+	var _box = __webpack_require__(8);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -64,7 +66,7 @@
 
 	new _vue2.default({
 		el: '#app',
-		template: _tictactoe2.default,
+		template: _tictactoe4.default,
 		data: {
 			board: getState('board').length ? getState('board') : [['', '', ''], ['', '', ''], ['', '', '']],
 			cplayer: getState('cplayer').length ? getState('cplayer') : '1',
@@ -153,8 +155,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./styles.css", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./styles.css");
+			module.hot.accept("!!./node_modules/css-loader/index.js!./node_modules/stylus-loader/index.js!./tictactoe.styl", function() {
+				var newContent = require("!!./node_modules/css-loader/index.js!./node_modules/stylus-loader/index.js!./tictactoe.styl");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -172,7 +174,7 @@
 
 
 	// module
-	exports.push([module.id, "\t.app_wrapper {\r\n\t\tmargin: 0 auto;\r\n\t\twidth: 350px;\r\n\t}\r\n\t.app_wrapper h2 {\r\n\t\ttext-align: center;\r\n\t}\r\n\tbutton {\r\n\t\theight: 100px;\r\n\t\twidth: 100px;\r\n\t\tvertical-align: middle;\r\n\t\tfont-size: 80px;\r\n\t}\t\r\n\t.newline {\r\n\t\tdisplay: table;\r\n\t\tmargin: 0 auto;\r\n\t}\r\n\t.player_wrapper {\r\n\t\tmargin: 10px auto;\r\n\t}\r\n\t.player_wrapper div {\r\n\t\twidth: 50%;\r\n\t\ttext-align: center;\r\n\t\tdisplay: inline-block;\r\n\r\n\t}", ""]);
+	exports.push([module.id, ".app_wrapper {\n  margin: 0 auto;\n  width: 350px;\n}\n.app_wrapper h2 {\n  text-align: center;\n}\n.newline {\n  display: table;\n  margin: 0 auto;\n}\n.player_wrapper {\n  margin: 10px auto;\n}\n.player_wrapper div {\n  width: 50%;\n  text-align: center;\n  display: inline-block;\n}\n", ""]);
 
 	// exports
 
@@ -489,6 +491,12 @@
 
 /***/ },
 /* 5 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"app_wrapper\"><h2>Tic Tac Toe</h2><span v-for=\"(x, boxline) in board\" class=\"newline\"><span v-for=\"(y, box) in board[x]\" track-by=\"$index\"><box :value=\"box\" @click=\"claim(x,y)\"></box></span></span><div class=\"player_wrapper\"><div v-for=\"player in players\">{{ player.name }} : {{ player.score }}</div></div></div>"
+
+/***/ },
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/*!
@@ -9793,10 +9801,10 @@
 	}
 
 	module.exports = Vue;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports) {
 
 	// shim for using process in browser
@@ -9893,7 +9901,7 @@
 
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9903,9 +9911,13 @@
 	});
 	exports.box = undefined;
 
-	var _box = __webpack_require__(8);
+	var _box = __webpack_require__(9);
 
 	var _box2 = _interopRequireDefault(_box);
+
+	var _box3 = __webpack_require__(10);
+
+	var _box4 = _interopRequireDefault(_box3);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -9915,16 +9927,50 @@
 	};
 
 /***/ },
-/* 8 */
+/* 9 */
 /***/ function(module, exports) {
 
 	module.exports = "<button>{{ value }}</button>"
 
 /***/ },
-/* 9 */
-/***/ function(module, exports) {
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<div class=\"app_wrapper\"><h2>Tic Tac Toe</h2><span v-for=\"(x, boxline) in board\" class=\"newline\"><span v-for=\"(y, box) in board[x]\" track-by=\"$index\"><box :value=\"box\" @click=\"claim(x,y)\"></box></span></span><div class=\"player_wrapper\"><div v-for=\"player in players\">{{ player.name }} : {{ player.score }}</div></div></div>"
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(11);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(4)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./node_modules/css-loader/index.js!./node_modules/stylus-loader/index.js!./box.styl", function() {
+				var newContent = require("!!./node_modules/css-loader/index.js!./node_modules/stylus-loader/index.js!./box.styl");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(3)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "button {\n  height: 100px;\n  width: 100px;\n  vertical-align: middle;\n  font-size: 80px;\n}\n", ""]);
+
+	// exports
+
 
 /***/ }
 /******/ ]);
