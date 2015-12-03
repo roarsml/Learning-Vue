@@ -1,3 +1,4 @@
+var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 module.exports = {
     entry: "./js/tictactoe.js",
     output: {
@@ -11,5 +12,20 @@ module.exports = {
             { test: /\.jade$/, loader: "template-html-loader" },
             { test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader' }
         ]
-    }
+    },
+    plugins: [
+        new BrowserSyncPlugin(
+        {
+            host: 'localhost',
+            port: 3000,
+            server: { 
+                baseDir: "./",
+                index: "tictactoe.html"
+            }
+        },
+        {
+            reload: false
+        }
+        )
+    ]
 };
